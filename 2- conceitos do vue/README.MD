@@ -3,7 +3,7 @@
 
 <br>
 
-## Tópicos que iremos ver:
+## Tópicos:
 1. Single File Components
 2. Data Binding
 3. Diretivas
