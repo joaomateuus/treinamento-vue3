@@ -18,4 +18,34 @@
 - E quando quisermos que nossa view interfira no nosso model ou vice e versa usamos o `<v-model>`
 
 ---
+<br>
 
+# Exemplos de usos do data binding:
+## `<v-model>`
+###  Um dos casos clássicos do uso de v-model são formulários:
+````
+<template>
+    <div>
+        <form>
+            <label>Nome</label>
+            <input v-model="nome" type="text" />
+        </form>
+    </div>
+</template>
+<script>
+    export default {
+        name:  'component',
+        data() {
+            return {
+                nome: '',
+            }
+        }
+    }
+</script>
+````
+- Aqui o que for inscrito no input vai ser armazenado na variável nome.
+
+<br>
+
+## `<v-bind>`
+### Para qualquer uso de interpolação dinâmica ou simples é muito útil do v-bind.
