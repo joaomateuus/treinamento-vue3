@@ -11,5 +11,9 @@
 - Acompanhado do método que vai ser chamado quando o evento ocorrer: `@click="remove(task)"`
 - Poderiamos ter até passado nossa lógica com if em operadores ternários (statement in line) mas aq so passamos o nome da função que está em nossos methods. 
 
+## Alguns Exemplos de eventos:
+- ### @Click: Clique
+- ### @dbClick: Double clique
+- ### @Keyup: Enter
 ---
 
