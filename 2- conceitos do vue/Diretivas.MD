@@ -112,4 +112,46 @@
     <div>
 ````
 - ### Viu que passamos o v-else na tag p, e não foi preciso nem passar o nome da variável, se a condição do if não for atendida o else vai ser executado como é em uma linguagem de programação.
+---
+# Outras diretivas:
+- ### `<v-show>`: É parecido com o `<v-if>` mas a diferença que não tem else e quando usamos o v-if o vue adiciona/remove o elemento do nosso código html. <br> - Enquanto com `<v-show>` apenas esconde/mostra com a propiedade display none do css.
+---
+# Como criar sua própia diretiva, customizada:
+- ### 1 passo: defini-la
+````
+//"diretiva"
+<input type="text" v-focus>
 
+````
+
+- ### 2 passo: criar sua função
+
+````
+<script>
+const focus = {
+    inserted: (el) => {
+        el.focus()
+    }
+}
+</script>
+````
+- ### Declara-la:
+````
+<script>
+const focus = {
+    inserted: (el) => {
+        el.focus()
+    }
+}
+export default {
+    name: 'component',
+    directives:{
+        focus
+    },
+    data: () => {
+        //
+    }
+}
+</script>
+````
+## Pronto :) <br> Nesse exemplo criamos uma diretiva que foca no nosso input mesmo enquanto não estamos com o mouse sobre ele.
