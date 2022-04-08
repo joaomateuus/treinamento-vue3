@@ -1,5 +1,5 @@
 # Single File Component
-Template, lógica e estilo no mesmo arquivo.
+### Template, lógica e estilo no mesmo arquivo.
 
 <br>
 
