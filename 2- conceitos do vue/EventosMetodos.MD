@@ -7,4 +7,9 @@
 <br>
 
 ## Sintaxe de um Event Listener no vue: 
-### `@` - Determinamos esse simbolo de @ para criar event listeners no vuejs, <br> Que na verdade é uma abreviação da diretiva v-on dando um bind, nesse exemplo de click: `<v-on>:click`
+### `@` - Determinamos esse simbolo de @ para criar event listeners no vuejs, <br> Que na verdade é uma abreviação da diretiva v-on dando um bind, nesse exemplo de click: `<v-on>:click`.
+- Acompanhado do método que vai ser chamado quando o evento ocorrer: `@click="remove(task)"`
+- Poderiamos ter até passado nossa lógica com if em operadores ternários (statement in line) mas aq so passamos o nome da função que está em nossos methods. 
+
+---
+
