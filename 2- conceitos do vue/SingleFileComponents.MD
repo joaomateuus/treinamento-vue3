@@ -59,7 +59,7 @@ color: white;
     }
 </script>
 ````
-## * Também podemos usar CSS e Js em arquivos separados
+## * PS: Mas também podemos usar CSS e Js em arquivos separados
 
 <br> 
 <br>
