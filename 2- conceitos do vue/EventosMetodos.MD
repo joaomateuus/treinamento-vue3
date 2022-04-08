@@ -14,6 +14,7 @@
 ## Alguns Exemplos de eventos:
 - ### @Click: Clique
 - ### @dbClick: Double clique
-- ### @Keyup: Enter
+- ### @Keyup: Tecla pressionada
+- ### @Keyup.enter: Enter
 ---
 
