@@ -64,3 +64,62 @@
     - ### HandleShowList(): Vai inverter o valor da variável, assim a tornando verdadeira para ser renderizada na condicional.
     - ### Remove(task): Usando o método filter, vamos filtrar o array criando um novo a partir do mesmo colocando apenas a task que atende a condição. <br> No caso a condição é: se o nome do t não igual do task.name, esse index não entrará no próximo Array.
         - A solução acima preza pelo conceito de imutabilidade, é uma ótima prática.
+
+<br>
+
+## - Usando Eventlistener para alterar o estilo de uma classe
+
+````
+<template>
+    <div>
+        <ul>
+            <li @dbclick="complete(task)"
+            :class:"{'line-through' : task.isDone}"
+            >
+                {{ task.name }}
+            </li>
+        </ul>
+    </div>
+</template>
+<script>
+    export default{
+        name: 'component',
+        data: () => {
+            showList: false,
+            tasks: [
+                {name: 'Fazer curso', isDone:false}
+            ]
+        },
+        methods: {
+            complete(task) {
+                this.tasks = this.tasks.map(t => {
+                    if(t.name === task.name) {
+                         return { ...t, isDone: !t.isDone }    
+                    }
+                    return {...t}
+                });
+            },
+        },
+    }
+</script>
+<style>
+.line-through {
+    text-decoration: line-through;
+}
+
+
+</style>
+````
+- ### 1- Criamos o evento de dbclick no `<li>` que chama a função `complete(task)`.
+    <br>
+    
+    - ### Na função usamos o método map para percorrer o array e usamos o if para verificar se o nome da tarefa é igual ao que está no model.
+    - ### Se for ele ira retornar o array de tasks mudando o estado da variável isDone.
+    - ### E por fim retorna o array alterado fora do if para usarmos o seu valor. 
+- ### 2- Declaramos o estilo no `<style>`, um line-through.
+<br>
+
+- ### Bindamos o resultado do isDone na class do html, passando uma sintaxe de JS com um operador ternário que diz: 
+    - ### Se o isDone for verdadeiro, aplique a classe.
+
+---
