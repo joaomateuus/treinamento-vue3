@@ -1,0 +1,1 @@
+# Sintaxe Nova x Sintaxe Antiga
