@@ -10,9 +10,7 @@
           <input type="email" v-model="state.email.value" :class="{ 'border-brand-danger': !!state.email.errorMessage }"
           class="block w-full px-4 py-3 mt-1 text-large bg-gray-100 border-2 border-transparent rounded"
           placeholder="joaomateus@gmail.com">
-        <span
-          v-if="!!state.email.errorMessage"
-          class="block font-medium text-brand-danger">
+        <span v-if="!!state.email.errorMessage" class="block font-medium text-brand-danger">
           {{ state.email.errorMessage }}
         </span>
       </label>
@@ -28,8 +26,7 @@
         </span>
       </label>
 
-      <button :disabled="state.isLoading"
-      type="submit" :class="{ 'opacity-50': state.isLoading }"
+      <button :disabled="state.isLoading" :class="{ 'opacity-50': state.isLoading }" type="submit" 
       class="px-16 py-3 mt-12 ml-20 text-2xl font-bold text-white rounded-full bg-brand-main focus:outline-none transition-all duration-150">
         Entrar
       </button>
@@ -39,22 +36,26 @@
 
 <script>
 import { reactive } from 'vue';
-import useModal from '../../hooks/useModal'
+import useModal from '../../hooks/useModal';
+import { useField } from 'vee-validate';
+import { validateEmptyAndLength3 } from '../../utils/validators';
 
 export default {
   name:'ModalLogin',
   setup() {
     const modal = useModal();
+    const { value: emailValue, errorMessage: emailErrorMessage } = useField('email', validateEmptyAndLength3);
+    const { value: passwordValue, errorMessage: passwordErrorMessage } = useField('password', validateEmptyAndLength3);
     const state = reactive({
       hasErrors: false,
       isLoading: false,
       email: {
-        value: '',
-        errorMessage: ''
+        value: emailValue,
+        errorMessage: emailErrorMessage
       },
       password:{
-        value: '',
-        errorMessage: '',
+        value: passwordValue,
+        errorMessage: passwordErrorMessage,
       }
     })
 
@@ -64,7 +65,8 @@ export default {
   
     return {
       state,
-      close: modal.close
+      close: modal.close,
+      handleSubmit
     }
   
   }

@@ -17,7 +17,7 @@
             <div class="flex flex-col mt-28">
                 <h1 class="text-4xl font-black text-white">
                     Tenha um feedback. <br>
-                    E faça seus clientes mais felizes! <br class="hidden lg:inline-block"> 
+                    E faça seus clientes mais<br class="hidden lg:inline-block"> 
                     felizes!
                 </h1>
                 <p class="text-lg font-medium text-white">
