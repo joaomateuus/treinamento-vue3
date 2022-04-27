@@ -8,7 +8,7 @@
       <label class="block">
         <span class="text-lg font-medium text-gray-800">E-mail</span>
           <input type="email" v-model="state.email.value" :class="{ 'border-brand-danger': !!state.email.errorMessage }"
-          class="block w-full px-4 py-3 mt-1 text-large bg-gray-100 border-2 border-transparent rounded"
+          class="block w-full px-4 py-3 mt-1 text-large bg-gray-100 border-2 border-transparent rounded focus:outline-none"
           placeholder="joaomateus@gmail.com">
         <span v-if="!!state.email.errorMessage" class="block font-medium text-brand-danger">
           {{ state.email.errorMessage }}
@@ -16,7 +16,7 @@
       </label>
       <label class="block">
         <span class="text-lg font-medium text-gray-800">Senha</span>
-        <input type="password" v-model="state.password.value" class="block w-full px-4 py-3 mt-1 text-large bg-gray-100 border-2 border-transparent rounded"
+        <input type="password" v-model="state.password.value" class="block w-full px-4 py-3 mt-1 text-large bg-gray-100 border-2 border-transparent rounded focus:outline-none"
         :class="{
           'border-brand-danger': !!state.password.errorMessage
         }"
@@ -43,9 +43,10 @@ import { validateEmptyAndLength3 } from '../../utils/validators';
 export default {
   name:'ModalLogin',
   setup() {
-    const modal = useModal();
-    const { value: emailValue, errorMessage: emailErrorMessage } = useField('email', validateEmptyAndLength3);
+    const { value: emailValue, errorMessage: emailErrorMessage } = useField('email',);
     const { value: passwordValue, errorMessage: passwordErrorMessage } = useField('password', validateEmptyAndLength3);
+    const modal = useModal();
+    
     const state = reactive({
       hasErrors: false,
       isLoading: false,
@@ -66,7 +67,7 @@ export default {
     return {
       state,
       close: modal.close,
-      handleSubmit
+      handleSubmit,
     }
   
   }
